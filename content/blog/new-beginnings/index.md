@@ -1,108 +1,197 @@
 ---
-title: New Beginnings
-date: "2015-05-28T22:40:32.169Z"
-description: This is a custom description for SEO and Open Graph purposes, rather than the default generated excerpt. Simply add a description field to the frontmatter.
+title: Hoisting in javascript
+date: "2020-12-21T23:46:37.121Z"
+description: Hoisting in a very popular concept in javascript which every javascript developer should grasp it well.
 ---
 
-Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-right at the coast of the Semantics, a large language ocean. A small river named
-Duden flows by their place and supplies it with the necessary regelialia.
+# **Introduction**
 
-## On deer horse aboard tritely yikes and much
+Whenever you run your code, javascript parses it first before execution .. during the parsing phase the parser reads code line by line to check for any errors and stops execution if there's any, and if there's no errors javascript interpreter begins to move (hoist) all the functions and variables declaration to the top of our code .. so in this way we can use variables and function before declaring it in our code.
 
-The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.
+## _**So what is hoisting?**_
 
-- This however showed weasel
-- Well uncritical so misled
-  - this is very interesting
-- Goodness much until that fluid owl
+It's when javascript interpreter moves all the functions and variables declaration to the top of our code before execution, so regardless of whether their scope is global or local they are all moved to the top (the top of their scope).
 
-When she reached the first hills of the **Italic Mountains**, she had a last
-view back on the skyline of her hometown _Bookmarksgrove_, the headline of
-[Alphabet Village](http://google.com) and the subline of her own road, the Line
-Lane. Pityful a rhetoric question ran over her cheek, then she continued her
-way. On her way she met a copy.
+<!-- when you run your code, javascript *parses* it first before excution. -->
 
-### Overlaid the jeepers uselessly much excluding
+<!-- *__Note:__*
+Only the actual declaration is hoisted, and any initialization or assignment are left where they are. -->
 
-But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with
-[Longe and Parole](http://google.com) and dragged her into their agency, where
-they abused her for their projects again and again. And if she hasn’t been
-rewritten, then they are still using her.
+#### Variable hoisting :-
 
-> Far far away, behind the word mountains, far from the countries Vokalia and
-> Consonantia, there live the blind texts. Separated they live in Bookmarksgrove
-> right at the coast of the Semantics, a large language ocean.
+- Using var </br>
+- Using let and const </br>
 
-It is a paradisematic country, in which roasted parts of sentences fly into your
-mouth. Even the all-powerful Pointing has no control about the blind texts it is
-an almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar.
+### 1️⃣ Using _var_
 
-### According a funnily until pre-set or arrogant well cheerful
+```javascript
+language = "javascript"
 
-The Big Oxmox advised her not to do so, because there were thousands of bad
-Commas, wild Question Marks and devious Semikoli, but the Little Blind Text
-didn’t listen. She packed her seven versalia, put her initial into the belt and
-made herself on the way.
+console.log(language)
 
-1.  So baboon this
-2.  Mounted militant weasel gregariously admonishingly straightly hey
-3.  Dear foresaw hungry and much some overhung
-4.  Rash opossum less because less some amid besides yikes jeepers frenetic
-    impassive fruitlessly shut
+var language
+```
 
-When she reached the first hills of the Italic Mountains, she had a last view
-back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet
-Village and the subline of her own road, the Line Lane. Pityful a rhetoric
-question ran over her cheek, then she continued her way. On her way she met a
-copy.
+_output_
 
-> The copy warned the Little Blind Text, that where it came from it would have
-> been rewritten a thousand times and everything that was left from its origin
-> would be the word "and" and the Little Blind Text should turn around and
-> return to its own, safe country.
+```javascript
+javascript
+```
 
-But nothing the copy said could convince her and so it didn’t take long until a
-few insidious Copy Writers ambushed her, made her drunk with Longe and Parole
-and dragged her into their agency, where they abused her for their projects
-again and again. And if she hasn’t been rewritten, then they are still using
-her. Far far away, behind the word mountains, far from the countries Vokalia and
-Consonantia, there live the blind texts.
+Before execution javascript's interpreter hoist all variables declaration to the top of our code, and for **var** variables during compile phase it hoist the variable to the top of the code and initialize it to **undefined** .. this value lasts undefined untill the javascript interpreter hits the line of the assignment (evaluation) of the variable.
 
-#### Silent delightfully including because before one up barring chameleon
+So keep in mind that javascript see the previous code during compile phase like this .. <br>
 
-Separated they live in Bookmarksgrove right at the coast of the Semantics, a
-large language ocean. A small river named Duden flows by their place and
-supplies it with the necessary regelialia. It is a paradisematic country, in
-which roasted parts of sentences fly into your mouth.
+```javascript
+var language = undefined
 
-Even the all-powerful Pointing has no control about the blind texts it is an
-almost unorthographic life One day however a small line of blind text by the
-name of Lorem Ipsum decided to leave for the far World of Grammar. The Big Oxmox
-advised her not to do so, because there were thousands of bad Commas, wild
-Question Marks and devious Semikoli, but the Little Blind Text didn’t listen.
+language = "javascript"
 
-##### Wherever far wow thus a squirrel raccoon jeez jaguar this from along
+console.log(language)
+```
 
-She packed her seven versalia, put her initial into the belt and made herself on
-the way. When she reached the first hills of the Italic Mountains, she had a
-last view back on the skyline of her hometown Bookmarksgrove, the headline of
-Alphabet Village and the subline of her own road, the Line Lane. Pityful a
-rhetoric question ran over her cheek, then she continued her way. On her way she
-met a copy.
+_output_
 
-###### Slapped cozy a that lightheartedly and far
+```javascript
+javascript
+```
 
-The copy warned the Little Blind Text, that where it came from it would have
-been rewritten a thousand times and everything that was left from its origin
-would be the word "and" and the Little Blind Text should turn around and return
-to its own, safe country. But nothing the copy said could convince her and so it
-didn’t take long until a few insidious Copy Writers ambushed her, made her drunk
-with Longe and Parole and dragged her into their agency, where they abused her
-for their projects again and again.
+So let's see another example where javascript comes with unexpected output 😄
+
+```javascript
+console.log(language)
+
+var language = "javascript"
+```
+
+_output_
+
+```javascript
+undefined
+```
+
+In this snippet, during the compilation phase javascript's interpreter hoists the 'language' variable to the top and initializes it with undefined, and before console.log() came before the actual initialization, javascript logs undefined to the console.
+
+**So javascript see it like**
+
+```javascript
+var language = undefined // hoisted and auto initialized to undefined
+
+console.log(language) // undefined
+
+language = "javascript" // language = 'javascript'
+```
+
+So now if we tried to run the following
+
+```javascript
+console.log(language)
+
+var language = "javascript"
+
+console.log(language)
+```
+
+_output_
+
+```javascript
+undefined
+javascript
+```
+
+As you might expect, the second log() function logs the actual value because during the excution, the interpreter hits the actual initialization before it logs the value to the screen.
+
+the following snippet is gonna make it clear a bit
+
+```javascript
+console.log(myAge)
+
+var myAge = 21
+
+function foo() {
+  var myAge = 44
+
+  console.log(myAge)
+}
+
+foo()
+console.log(myAge)
+```
+
+_output_
+
+```javascript
+undefined
+44
+21
+```
+
+again every variable declaration are getting hoisted to the top of their scope .. so the outer variable is getting hoisted to the top of its scope (global scope) and the inner variable is getting hoisted to the top of its scope (local function scope), so the first log is undefined because it's hoisted and auto initialized to undefined by the interpreter .. now after the execution of _foo_ function the inner variable is getting hoisted to the top of the function scope and initialized to 44 before logging it so it logs 44 to the console.
+now the last line logs the value of the variable declared in its scope(in this case global scope) so it prints 21 on the screen.
+
+### 2️⃣ Using _let and const_
+
+```javascript
+console.log(age)
+let age = 21
+```
+
+```javascript
+ReferenceError: Cannot access 'age' before initialization ❌
+```
+
+## **the question here, are let and const variables not hoisted?** 👀
+
+the answer is they are getting hoisted too, but not initialized .. so that is the main difference between let and const vs var variables. So keep in mind that all varaibles are hoisted in javascript however var variables is getting initialized to undefined but let and const not initialized at all during compilation.
+
+**let and const variables only get initialized when their evaluation during the runtime .. let's see how.**
+
+```javascript
+console.log(name)
+let name
+```
+
+Error ❌
+
+```javascript
+ReferenceError: Cannot access 'name' before initialization
+```
+
+this example clarify how javascript behaves during the compilation of let variables, it hoists the variable but never initialize it during the compilation phase, so during the runtime javascript don't recognize the variable and throws an error.
+
+so let's try the reverse ..
+
+```javascript
+let name
+console.log(name)
+```
+
+_output_
+
+```javascript
+undefined
+```
+
+so now you know that during the compilation phase **let** is hoisted but never initialized, so in the execution phase the interpreter initializes **let** variables to undefined (until it's evaluated to its actual assignment in the program).
+that's why it logs _**undefined**_.
+_So during the compilation phase it's hoisted but not initialized & during the execution phase let is initialized to undefined if there's no assignment statement reached by the interpreter_.
+
+### **it differs a bit in the case of const**
+
+the difference between let and const is during the execution phase .. when **let** being initialized to undefined however const throws an error and never initialized by the interpreter.
+
+```javascript
+const x;
+console.log(x)
+```
+
+Error ❌
+
+```javascript
+Missing initializer in const declaration
+```
+
+Here javascript hoist const variable during compilation, but in the execution phase when the interpreter hits the declaration statement '**const x;**' it never initialize it .. that's why it throws an error when we try to log its value.
+
+Ok, that's it for this blog, hopefully I could help 😄
+Thank you for reading!
